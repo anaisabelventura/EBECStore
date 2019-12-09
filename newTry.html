@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="https://blog-cdn.smalldo.gs/js/highlight.pack.js"></script>
+<script src="js/countdown.js"></script>
+
+
+</head>
+
+<body>
+	<p>You'll be logged out in: <span id="logout-timer"></span></p>
+	<div id="time"></div>
+
+	<script type="text/javascript">
+	   var timer = document.getElementById("logout-timer")
+		  , now = new Date()
+		  , deadline = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes() + 15,  d.getSeconds(), d.getMilliseconds());
+
+		timer.innerHTML = countdown(deadline);
+		setInterval(function(){
+		  timer.innerHTML = countdown(deadline);
+		}, 1000);
+
+	</script>
+
+
+</body>

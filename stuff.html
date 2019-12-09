@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Desktop</title>
+	</head>
+
+	<body>
+		<a href="#" id="dnperm">Reguest permision</a>
+		<p onclick="spawnNotification('theBody','img/BEST_icon_114.png','theTitle')" id="dntrigger">Trigger</p><br>
+
+
+		<script>
+			Notification.requestPermission().then(function(result) {
+			  console.log(result);
+			});
+			
+			function spawnNotification(theBody,theIcon,theTitle) {
+			  var options = {
+				  body: theBody,
+				  icon: theIcon
+			  }
+			  var n = new Notification(theTitle,options);
+			}
+		</script>
+	</body>
+</html>﻿

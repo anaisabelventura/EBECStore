@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div id="clockdiv"></div>
+
+	<script type="text/javascript">
+	   
+	   initializeClock('clockdiv');
+	   
+		function initializeClock(id){
+		  var d = new Date();
+		  var Y = d.getFullYear();
+		  var Da = d.getDate();
+		  var M = d.getMonth(); 
+		  var endtime = 'December 31 2017 23:59:59 GMT+0200';
+		  
+		  M++;
+		  var clock = document.getElementById(id);
+		  var timeinterval = setInterval(function(){
+			var t = getTimeRemaining(endtime);
+			clock.innerHTML = t.days + ':' +
+							  + t.hours + ':' +
+							  + t.minutes + ':' +
+							  + t.seconds;
+			if(t.total<=0){
+			  clearInterval(timeinterval);
+			}
+		  },1000);
+		}
+		   
+	    function getTimeRemaining(endtime){
+		  var t = Date.parse(endtime) - Date.parse(new Date());
+		  var seconds = Math.floor( (t/1000) % 60 );
+		  var minutes = Math.floor( (t/1000/60) % 60 );
+		  var hours = Math.floor( (t/(1000*60*60)) % 24 );
+		  var days = Math.floor( t/(1000*60*60*24) );
+		  return {
+			'total': t,
+			'days': days,
+			'hours': hours,
+			'minutes': minutes,
+			'seconds': seconds
+		  };
+		}
+
+	</script>
+
+
+</body>
